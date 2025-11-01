@@ -1,418 +1,405 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Examen del tema "Los grandes reinos de la naturaleza"</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .quiz-container {
-            background-color: #ffffff;
-            border-radius: 1.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-                        0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            padding: 2.5rem;
-            width: 100%;
-            max-width: 800px;
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        .option-label {
-            display: flex;
-            align-items: center;
-            padding: 0.75rem 1rem;
-            border-radius: 0.75rem;
-            border: 1px solid #e5e7eb;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-            margin-bottom: 0.75rem;
-        }
-        .option-label:hover {
-            background-color: #f9fafb;
-            border-color: #d1d5db;
-        }
-        .option-label input[type="radio"] {
-            margin-right: 0.75rem;
-            accent-color: #4f46e5;
-            transform: scale(1.2);
-        }
-        .option-label.correct {
-            background-color: #d1fae5;
-            border-color: #34d399;
-        }
-        .option-label.incorrect {
-            background-color: #fee2e2;
-            border-color: #f87171;
-        }
-        .feedback-box {
-            padding: 1rem;
-            border-radius: 0.75rem;
-            margin-top: 1rem;
-        }
-        .feedback-box.correct {
-            background-color: #d1fae5;
-            border: 1px solid #34d399;
-            color: #065f46;
-        }
-        .feedback-box.incorrect {
-            background-color: #fee2e2;
-            border: 1px solid #f87171;
-            color: #b91c1c;
-        }
-        .button {
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.75rem;
-            font-weight: 600;
-            transition: background-color 0.2s ease-in-out;
-            cursor: pointer;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .button-primary {
-            background-color: #4f46e5;
-            color: #ffffff;
-        }
-        .button-primary:hover {
-            background-color: #4338ca;
-        }
-        .button-secondary {
-            background-color: #e0e7ff;
-            color: #4f46e5;
-        }
-        .button-secondary:hover {
-            background-color: #c7d2fe;
-        }
-        .summary-container {
-            text-align: center;
-            margin-top: 2rem;
-        }
-        .summary-container h2 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 1rem;
-        }
-        .summary-container p {
-            font-size: 1.125rem;
-            color: #4b5563;
-            margin-bottom: 1.5rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examen del tema "Los grandes reinos de la naturaleza"</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .quiz-container {
+      background-color: #ffffff;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                  0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 800px;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .option-label {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      border: 1px solid #e5e7eb;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      margin-bottom: 0.75rem;
+    }
+    .option-label:hover {
+      background-color: #f9fafb;
+      border-color: #d1d5db;
+    }
+    .option-label input[type="radio"] {
+      margin-right: 0.75rem;
+      accent-color: #4f46e5;
+      transform: scale(1.2);
+    }
+    .option-label.correct {
+      background-color: #d1fae5;
+      border-color: #34d399;
+    }
+    .option-label.incorrect {
+      background-color: #fee2e2;
+      border-color: #f87171;
+    }
+    .feedback-box {
+      padding: 1rem;
+      border-radius: 0.75rem;
+      margin-top: 1rem;
+    }
+    .feedback-box.correct {
+      background-color: #d1fae5;
+      border: 1px solid #34d399;
+      color: #065f46;
+    }
+    .feedback-box.incorrect {
+      background-color: #fee2e2;
+      border: 1px solid #f87171;
+      color: #b91c1c;
+    }
+    .button {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      transition: background-color 0.2s ease-in-out;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .button-primary {
+      background-color: #4f46e5;
+      color: #ffffff;
+    }
+    .button-primary:hover {
+      background-color: #4338ca;
+    }
+    .button-secondary {
+      background-color: #e0e7ff;
+      color: #4f46e5;
+    }
+    .button-secondary:hover {
+      background-color: #c7d2fe;
+    }
+    .summary-container {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .summary-container h2 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 1rem;
+    }
+    .summary-container p {
+      font-size: 1.125rem;
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+    }
+  </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
-    <div id="quizApp" class="quiz-container">
-        <h1 class="text-3xl font-bold text-gray-900 text-center">Examen de la unidad 8°</h1>
-        <div id="questionContainer" class="hidden">
-            <p id="questionText" class="text-xl font-semibold text-gray-800 mb-4"></p>
-            <div id="optionsContainer" class="flex flex-col"></div>
-            <div id="feedback" class="feedback-box hidden"></div>
-            <div class="flex justify-between mt-6">
-                <button id="checkAnswerBtn" class="button button-primary">Verificar Respuesta</button>
-                <button id="nextQuestionBtn" class="button button-secondary hidden">Siguiente Pregunta</button>
-            </div>
-        </div>
-
-        <div id="startScreen" class="text-center">
-            <p class="text-lg text-gray-700 mb-6">
-                En este examen sobre los diferentes temas de la unidad 8, puedes usar solamente tus apuntes y debes marcar la opción correcta. 
-                Esto es evaluado y, por lo tanto, no existen 2 oportunidades. ¡Te deseamos suerte!
-            </p>
-            <button id="startQuizBtn" class="button button-primary">Comenzar Examen</button>
-        </div>
-
-        <div id="summaryScreen" class="summary-container hidden">
-            <h2 id="summaryTitle"></h2>
-            <p id="summaryScore"></p>
-            <button id="restartQuizBtn" class="button button-primary">Salir del examen</button>
-        </div>
+  <div id="quizApp" class="quiz-container">
+    <h1 class="text-3xl font-bold text-gray-900 text-center">Examen de la unidad 8°</h1>
+    <div id="questionContainer" class="hidden">
+      <p id="questionText" class="text-xl font-semibold text-gray-800 mb-4"></p>
+      <div id="optionsContainer" class="flex flex-col"></div>
+      <div id="feedback" class="feedback-box hidden"></div>
+      <div class="flex justify-between mt-6">
+        <button id="checkAnswerBtn" class="button button-primary">Verificar Respuesta</button>
+        <button id="nextQuestionBtn" class="button button-secondary hidden">Siguiente Pregunta</button>
+      </div>
     </div>
 
-    <script>
-        // Preguntas del examen
-        const questions = [
-            {
-                "question": "1-¿Por qué una jirafa difícilmente podría sobrevivir en el Polo Norte?",
-                "options": ["Falta de oxígeno", "Las enfermedades de las especies", "Por la escasez de agua", "Porque no soporta el frío"],
-                "correctAnswer": "Las enfermedades de las especies",
-                "rationale": "Las especies están adaptadas a ecosistemas específicos; al cambiar de ambiente, enfrentan enfermedades y condiciones biológicas que no pueden resistir."
-            },
-            {
-                "question": "¿En cuál opción está correctamente escrito el nombre científico de la cebolla?",
-                "options": ["Allium cepa", "allium Cepa", "ALLIUM CEPA", "Allium Cepa"],
-                "correctAnswer": "Allium cepa",
-                "rationale": "En la nomenclatura binomial, el género se escribe con mayúscula inicial y la especie en minúscula, ambos en cursiva o subrayados."
-            },
-            {
-                "question": "La atmósfera de la Tierra se formó a partir de los siguientes sucesos:",
-                "options": ["Colisiones con meteoritos", "Aumento del oxígeno por plantas", "Caída de lluvia ácida", "Emisión constante de gases como vapor de agua y CO₂ de las erupciones volcánicas"],
-                "correctAnswer": "Emisión constante de gases como vapor de agua y CO₂ de las erupciones volcánicas",
-                "rationale": "Los volcanes primitivos liberaron gases que formaron la atmósfera primigenia de la Tierra."
-            }
+    <div id="startScreen" class="text-center">
+      <p class="text-lg text-gray-700 mb-6">
+        En este examen sobre los diferentes temas de la unidad 8, puedes usar solamente tus apuntes y debes marcar la opción correcta. 
+        Esto es evaluado y, por lo tanto, no existen 2 oportunidades. ¡Te deseamos suerte!
+      </p>
+      <button id="startQuizBtn" class="button button-primary">Comenzar Examen</button>
+    </div>
 
-            {
-    "question": "Los organismos del reino Animalia se caracterizan por ser:",
+    <div id="summaryScreen" class="summary-container hidden">
+      <h2 id="summaryTitle"></h2>
+      <p id="summaryScore"></p>
+      <button id="restartQuizBtn" class="button button-primary">Salir del examen</button>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        "question": "1-¿Por qué una jirafa difícilmente podría sobrevivir en el Polo Norte?",
+        "options": ["Falta de oxígeno", "Las enfermedades de las especies", "Por la escasez de agua", "Porque no soporta el frío"],
+        "correctAnswer": "Las enfermedades de las especies",
+        "rationale": "Las especies están adaptadas a ecosistemas específicos; al cambiar de ambiente, enfrentan enfermedades y condiciones biológicas que no pueden resistir."
+      },
+      {
+        "question": "2-¿En cuál opción está correctamente escrito el nombre científico de la cebolla?",
+        "options": ["Allium cepa", "allium Cepa", "ALLIUM CEPA", "Allium Cepa"],
+        "correctAnswer": "Allium cepa",
+        "rationale": "En la nomenclatura binomial, el género se escribe con mayúscula inicial y la especie en minúscula, ambos en cursiva o subrayados."
+      },
+      {
+        "question": "3-La atmósfera de la Tierra se formó a partir de los siguientes sucesos:",
+        "options": ["Colisiones con meteoritos", "Aumento del oxígeno por plantas", "Caída de lluvia ácida", "Emisión constante de gases como vapor de agua y CO₂ de las erupciones volcánicas"],
+        "correctAnswer": "Emisión constante de gases como vapor de agua y CO₂ de las erupciones volcánicas",
+        "rationale": "Los volcanes primitivos liberaron gases que formaron la atmósfera primigenia de la Tierra."
+      },
+
+      {
+    "question": "4-Los organismos del reino Animalia se caracterizan por ser:",
     "options": ["Heterótrofos, móviles y multicelulares", "Autótrofos y unicelulares", "Fotosintéticos y sin núcleo", "De vida parasitaria"],
     "correctAnswer": "Heterótrofos, móviles y multicelulares",
     "rationale": "Los animales no producen su propio alimento, poseen movimiento activo y están formados por múltiples células."
   },
   {
-    "question": "La teoría de Kant-Laplace establece que el Sistema Solar se formó:",
+    "question": "5-La teoría de Kant-Laplace establece que el Sistema Solar se formó:",
     "options": ["Por explosión de una supernova", "De fragmentos de meteoritos", "Por una nube de polvo y gases contraída por gravedad", "Por acumulación de cometas"],
     "correctAnswer": "Por una nube de polvo y gases contraída por gravedad",
     "rationale": "Según Kant y Laplace, el sistema solar surgió de una nebulosa gaseosa que se contrajo hasta formar el Sol y los planetas."
   },
   {
-    "question": "¿Qué representa el término esculentum en el nombre Lycopersicum esculentum?",
+    "question": "6-¿Qué representa el término esculentum en el nombre Lycopersicum esculentum?",
     "options": ["El género", "El reino", "La especie del tomate", "La familia botánica"],
     "correctAnswer": "La especie del tomate",
     "rationale": "En la nomenclatura científica, el segundo término identifica la especie dentro del género."
   },
   {
-    "question": "La evolución de una especie se define como:",
+    "question": "7-La evolución de una especie se define como:",
     "options": ["Cambio de hábitat de una población", "Formación de nuevas células", "Transformación genética de una población en el tiempo", "Aparición repentina de mutaciones"],
     "correctAnswer": "Transformación genética de una población en el tiempo",
     "rationale": "La evolución implica modificaciones graduales en el material genético de una población a lo largo de las generaciones."
   },
   {
-    "question": "Una de las características más sobresalientes del hombre de Cro-Magnon es:",
+    "question": "8-Una de las características más sobresalientes del hombre de Cro-Magnon es:",
     "options": ["Su vida en cuevas y uso del fuego", "Fabricación de herramientas metálicas", "Desarrolló el arte a través de pinturas rupestres", "Control del clima"],
     "correctAnswer": "Desarrolló el arte a través de pinturas rupestres",
     "rationale": "El Homo sapiens Cro-Magnon dejó muestras de pensamiento simbólico mediante arte en cuevas, como en Lascaux y Altamira."
   },
   {
-    "question": "La importancia del Convenio Internacional CITES reside principalmente en:",
+    "question": "9-La importancia del Convenio Internacional CITES reside principalmente en:",
     "options": ["Proteger los mares", "Regular la pesca", "Clasificar animales por tamaño", "Asegurar que el comercio de fauna y flora silvestre no ponga en peligro las especies"],
     "correctAnswer": "Asegurar que el comercio de fauna y flora silvestre no ponga en peligro las especies",
     "rationale": "El convenio CITES regula el comercio internacional para evitar la extinción de especies amenazadas."
   },
   {
-    "question": "La pared celular de un hongo contiene:",
+    "question": "10-La pared celular de un hongo contiene:",
     "options": ["Celulosa", "Peptidoglucano", "Quitina", "Hemicelulosa"],
     "correctAnswer": "Quitina",
     "rationale": "A diferencia de las plantas, los hongos tienen paredes celulares compuestas de quitina, similar al exoesqueleto de los insectos."
   },
   {
-    "question": "El objetivo fundamental del convenio de Ramsar está basado en:",
+    "question": "11-El objetivo fundamental del convenio de Ramsar está basado en:",
     "options": ["Conservar humedales para aves acuáticas y biodiversidad", "Proteger arrecifes de coral", "Regular la caza de ballenas", "Cuidar glaciares"],
     "correctAnswer": "Conservar humedales para aves acuáticas y biodiversidad",
     "rationale": "El Convenio de Ramsar protege los humedales por su valor ecológico y por ser hábitats esenciales para aves migratorias."
   },
   {
-    "question": "Los simios, el ser humano y sus ancestros forman el grupo denominado:",
+    "question": "12-Los simios, el ser humano y sus ancestros forman el grupo denominado:",
     "options": ["Primates", "Homínidos", "Mamíferos", "Australopitecos"],
     "correctAnswer": "Primates",
     "rationale": "Los primates incluyen monos, simios y humanos, caracterizados por pulgares oponibles y visión estereoscópica."
   },
   {
-    "question": "Una característica de las arqueobacterias es:",
+    "question": "13-Una característica de las arqueobacterias es:",
     "options": ["Poseen clorofila", "Viven en ambientes extremos", "Son exclusivamente patógenas", "Carecen de ADN"],
     "correctAnswer": "Viven en ambientes extremos",
     "rationale": "Las arqueobacterias son extremófilas, habitan en lugares como manantiales calientes, salinas y pantanos sin oxígeno."
   },
   {
-    "question": "En el sistema binomial de nomenclatura el nombre científico de cada especie consiste en:",
+    "question": "14-En el sistema binomial de nomenclatura el nombre científico de cada especie consiste en:",
     "options": ["Reino y género", "Reino y especie", "Clase y familia", "Género y epíteto específico"],
     "correctAnswer": "Género y epíteto específico",
     "rationale": "El sistema de Linneo usa dos palabras: el género (mayúscula) y el epíteto específico (minúscula)."
   },
   {
-    "question": "La aparición de las plantas con flores y los dinosaurios ocurrió en la era:",
+    "question": "15-La aparición de las plantas con flores y los dinosaurios ocurrió en la era:",
     "options": ["Paleozoica", "Mesozoica", "Cenozoica", "Arcaica"],
     "correctAnswer": "Mesozoica",
     "rationale": "Durante la era Mesozoica, conocida como la era de los reptiles, surgieron las plantas con flores y los dinosaurios dominaron la Tierra."
   },
   {
-    "question": "Dos características esenciales de las plantas son:",
+    "question": "16-Dos características esenciales de las plantas son:",
     "options": ["Heterótrofas y sin pared celular", "Fotosintéticas y con pared celular", "Parasitarias y multicelulares", "Autótrofas sin clorofila"],
     "correctAnswer": "Fotosintéticas y con pared celular",
     "rationale": "Las plantas producen su alimento mediante la fotosíntesis y sus células tienen paredes de celulosa."
   },
   {
-    "question": "Una de las adaptaciones de los primates para la vida arbórea es:",
+    "question": "17-Una de las adaptaciones de los primates para la vida arbórea es:",
     "options": ["Extremidades cortas", "Largas extremidades que giran en los hombros", "Dedos sin uñas", "Postura erguida permanente"],
     "correctAnswer": "Largas extremidades que giran en los hombros",
     "rationale": "Los primates desarrollaron extremidades flexibles para trepar y balancearse en los árboles."
   },
   {
-    "question": "Los organismos desarrollan una serie de soluciones que les permiten sobrevivir, esto se debe a:",
+    "question": "18-Los organismos desarrollan una serie de soluciones que les permiten sobrevivir, esto se debe a:",
     "options": ["La herencia genética", "La intervención humana", "El azar evolutivo", "La manifestación del nivel ecológico de la biodiversidad"],
     "correctAnswer": "La manifestación del nivel ecológico de la biodiversidad",
     "rationale": "Cada especie adapta su comportamiento y fisiología al ecosistema donde vive, demostrando la biodiversidad funcional."
   },
   {
-    "question": "Una de las pruebas que sustenta la teoría de la evolución quimiosintética es:",
+    "question": "19-Una de las pruebas que sustenta la teoría de la evolución quimiosintética es:",
     "options": ["El agua, los minerales y los gases atmosféricos contribuyeron a formar moléculas orgánicas", "La selección natural de Darwin", "Las mutaciones genéticas", "La herencia mendeliana"],
     "correctAnswer": "El agua, los minerales y los gases atmosféricos contribuyeron a formar moléculas orgánicas",
     "rationale": "La hipótesis de Oparin-Haldane sugiere que las moléculas orgánicas se formaron a partir de compuestos simples en la atmósfera primitiva."
   },
   {
-    "question": "La formación de un sexto reino de la naturaleza obedeció al descubrimiento de que:",
+    "question": "20-La formación de un sexto reino de la naturaleza obedeció al descubrimiento de que:",
     "options": ["Las plantas podían dividirse en más clases", "Existen diferencias genéticas entre bacterias", "Las bacterias no tienen ADN", "Los virus poseen estructura viva"],
     "correctAnswer": "Existen diferencias genéticas entre bacterias",
     "rationale": "El análisis molecular reveló que las bacterias se dividen en dos grupos distintos: arqueas y eubacterias."
   }
-            // (las demás preguntas siguen igual)
-        ];
+    ];
 
-        let currentQuestionIndex = 0;
-        let score = 0;
-        let selectedOption = null;
-        let randomizedQuestions = []; // 🔹 nuevo arreglo con preguntas al azar
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let selectedOption = null;
+    let randomizedQuestions = [];
 
-        // Elementos del DOM
-        const startScreen = document.getElementById('startScreen');
-        const quizContainer = document.getElementById('questionContainer');
-        const summaryScreen = document.getElementById('summaryScreen');
-        const startQuizBtn = document.getElementById('startQuizBtn');
-        const questionText = document.getElementById('questionText');
-        const optionsContainer = document.getElementById('optionsContainer');
-        const feedbackDiv = document.getElementById('feedback');
-        const checkAnswerBtn = document.getElementById('checkAnswerBtn');
-        const nextQuestionBtn = document.getElementById('nextQuestionBtn');
-        const summaryTitle = document.getElementById('summaryTitle');
-        const summaryScore = document.getElementById('summaryScore');
-        const restartQuizBtn = document.getElementById('restartQuizBtn');
+    const startScreen = document.getElementById('startScreen');
+    const quizContainer = document.getElementById('questionContainer');
+    const summaryScreen = document.getElementById('summaryScreen');
+    const startQuizBtn = document.getElementById('startQuizBtn');
+    const questionText = document.getElementById('questionText');
+    const optionsContainer = document.getElementById('optionsContainer');
+    const feedbackDiv = document.getElementById('feedback');
+    const checkAnswerBtn = document.getElementById('checkAnswerBtn');
+    const nextQuestionBtn = document.getElementById('nextQuestionBtn');
+    const summaryTitle = document.getElementById('summaryTitle');
+    const summaryScore = document.getElementById('summaryScore');
+    const restartQuizBtn = document.getElementById('restartQuizBtn');
 
-        // Eventos
-        startQuizBtn.addEventListener('click', startQuiz);
-        checkAnswerBtn.addEventListener('click', checkAnswer);
-        nextQuestionBtn.addEventListener('click', loadNextQuestion);
-        restartQuizBtn.addEventListener('click', restartQuiz);
+    startQuizBtn.addEventListener('click', startQuiz);
+    checkAnswerBtn.addEventListener('click', checkAnswer);
+    nextQuestionBtn.addEventListener('click', loadNextQuestion);
+    restartQuizBtn.addEventListener('click', restartQuiz);
 
-        function startQuiz() {
-            startScreen.classList.add('hidden');
-            quizContainer.classList.remove('hidden');
-            currentQuestionIndex = 0;
-            score = 0;
+    function startQuiz() {
+      startScreen.classList.add('hidden');
+      quizContainer.classList.remove('hidden');
+      currentQuestionIndex = 0;
+      score = 0;
 
-            // 🔹 Mezclar preguntas al azar
-            randomizedQuestions = [...questions].sort(() => Math.random() - 0.5);
+      randomizedQuestions = [...questions].sort(() => Math.random() - 0.5);
+      loadQuestion();
+    }
 
-            // 🔹 (Opcional) Mostrar solo una parte de ellas, por ejemplo 10 de 20:
-            // randomizedQuestions = randomizedQuestions.slice(0, 10);
+    function loadQuestion() {
+      resetQuizState();
+      const q = randomizedQuestions[currentQuestionIndex];
+      questionText.textContent = q.question;
+      optionsContainer.innerHTML = '';
 
-            loadQuestion();
-        }
+      // 🔹 Mezclar las opciones dentro de cada pregunta
+      const shuffledOptions = [...q.options].sort(() => Math.random() - 0.5);
 
-        function loadQuestion() {
-            resetQuizState();
-            const q = randomizedQuestions[currentQuestionIndex];
-            questionText.textContent = q.question;
-            optionsContainer.innerHTML = '';
-
-            q.options.forEach(option => {
-                const label = document.createElement('label');
-                label.className = 'option-label';
-                const radio = document.createElement('input');
-                radio.type = 'radio';
-                radio.name = 'answer';
-                radio.value = option;
-                radio.addEventListener('change', () => {
-                    selectedOption = option;
-                    document.querySelectorAll('.option-label').forEach(lbl => {
-                        lbl.classList.remove('bg-indigo-50', 'border-indigo-400');
-                    });
-                    label.classList.add('bg-indigo-50', 'border-indigo-400');
-                });
-                label.appendChild(radio);
-                label.appendChild(document.createTextNode(option));
-                optionsContainer.appendChild(label);
-            });
-        }
-
-        function checkAnswer() {
-            if (selectedOption === null) {
-                feedbackDiv.textContent = "Por favor, selecciona una opción.";
-                feedbackDiv.className = 'feedback-box incorrect';
-                feedbackDiv.classList.remove('hidden');
-                return;
-            }
-
-            const q = randomizedQuestions[currentQuestionIndex];
-            const allOptions = optionsContainer.querySelectorAll('input[type="radio"]');
-            let isCorrect = false;
-
-            allOptions.forEach(radio => {
-                const label = radio.closest('label');
-                radio.disabled = true;
-
-                if (radio.value === q.correctAnswer) {
-                    label.classList.add('correct');
-                    if (selectedOption === radio.value) {
-                        isCorrect = true;
-                    }
-                } else if (selectedOption === radio.value) {
-                    label.classList.add('incorrect');
-                }
-            });
-
-            if (isCorrect) {
-                score++;
-                feedbackDiv.textContent = "¡Correcto! " + q.rationale;
-                feedbackDiv.className = 'feedback-box correct';
-            } else {
-                feedbackDiv.textContent = "Incorrecto. La respuesta correcta era: " + q.correctAnswer + ". " + q.rationale;
-                feedbackDiv.className = 'feedback-box incorrect';
-            }
-
-            feedbackDiv.classList.remove('hidden');
-            checkAnswerBtn.classList.add('hidden');
-            nextQuestionBtn.classList.remove('hidden');
-        }
-
-        function loadNextQuestion() {
-            currentQuestionIndex++;
-            if (currentQuestionIndex < randomizedQuestions.length) {
-                loadQuestion();
-            } else {
-                showSummary();
-            }
-        }
-
-        function resetQuizState() {
-            selectedOption = null;
-            feedbackDiv.classList.add('hidden');
-            checkAnswerBtn.classList.remove('hidden');
-            nextQuestionBtn.classList.add('hidden');
-            optionsContainer.querySelectorAll('input[type="radio"]').forEach(radio => {
-                radio.disabled = false;
-                radio.checked = false;
-            });
-            document.querySelectorAll('.option-label').forEach(label => {
-                label.classList.remove('correct', 'incorrect', 'bg-indigo-50', 'border-indigo-400');
-            });
-        }
-
-        function showSummary() {
-            quizContainer.classList.add('hidden');
-            summaryScreen.classList.remove('hidden');
-            summaryTitle.textContent = "Examen finalizado";
-            summaryScore.textContent = `Has obtenido ${score} de ${randomizedQuestions.length} respuestas correctas.`;
-        }
-
-        function restartQuiz() {
-            window.location.href = "https://www.google.com";
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            startScreen.classList.remove('hidden');
-            quizContainer.classList.add('hidden');
-            summaryScreen.classList.add('hidden');
+      shuffledOptions.forEach(option => {
+        const label = document.createElement('label');
+        label.className = 'option-label';
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = 'answer';
+        radio.value = option;
+        radio.addEventListener('change', () => {
+          selectedOption = option;
+          document.querySelectorAll('.option-label').forEach(lbl => {
+            lbl.classList.remove('bg-indigo-50', 'border-indigo-400');
+          });
+          label.classList.add('bg-indigo-50', 'border-indigo-400');
         });
-    </script>
+        label.appendChild(radio);
+        label.appendChild(document.createTextNode(option));
+        optionsContainer.appendChild(label);
+      });
+    }
+
+    function checkAnswer() {
+      if (selectedOption === null) {
+        feedbackDiv.textContent = "Por favor, selecciona una opción.";
+        feedbackDiv.className = 'feedback-box incorrect';
+        feedbackDiv.classList.remove('hidden');
+        return;
+      }
+
+      const q = randomizedQuestions[currentQuestionIndex];
+      const allOptions = optionsContainer.querySelectorAll('input[type="radio"]');
+      let isCorrect = false;
+
+      allOptions.forEach(radio => {
+        const label = radio.closest('label');
+        radio.disabled = true;
+
+        if (radio.value === q.correctAnswer) {
+          label.classList.add('correct');
+          if (selectedOption === radio.value) isCorrect = true;
+        } else if (selectedOption === radio.value) {
+          label.classList.add('incorrect');
+        }
+      });
+
+      if (isCorrect) {
+        score++;
+        feedbackDiv.textContent = "¡Correcto! " + q.rationale;
+        feedbackDiv.className = 'feedback-box correct';
+      } else {
+        feedbackDiv.textContent = "Incorrecto. La respuesta correcta era: " + q.correctAnswer + ". " + q.rationale;
+        feedbackDiv.className = 'feedback-box incorrect';
+      }
+
+      feedbackDiv.classList.remove('hidden');
+      checkAnswerBtn.classList.add('hidden');
+      nextQuestionBtn.classList.remove('hidden');
+    }
+
+    function loadNextQuestion() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < randomizedQuestions.length) loadQuestion();
+      else showSummary();
+    }
+
+    function resetQuizState() {
+      selectedOption = null;
+      feedbackDiv.classList.add('hidden');
+      checkAnswerBtn.classList.remove('hidden');
+      nextQuestionBtn.classList.add('hidden');
+      optionsContainer.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radio.disabled = false;
+        radio.checked = false;
+      });
+      document.querySelectorAll('.option-label').forEach(label => {
+        label.classList.remove('correct', 'incorrect', 'bg-indigo-50', 'border-indigo-400');
+      });
+    }
+
+    function showSummary() {
+      quizContainer.classList.add('hidden');
+      summaryScreen.classList.remove('hidden');
+      summaryTitle.textContent = "Examen finalizado";
+      summaryScore.textContent = `Has obtenido ${score} de ${randomizedQuestions.length} respuestas correctas.`;
+    }
+
+    function restartQuiz() {
+      window.location.href = "https://www.google.com";
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      startScreen.classList.remove('hidden');
+      quizContainer.classList.add('hidden');
+      summaryScreen.classList.add('hidden');
+    });
+  </script>
 </body>
 </html>
-
