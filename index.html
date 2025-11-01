@@ -7,108 +7,108 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for better aesthetics and responsiveness */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f0f2f5;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Align to top to prevent jumping on smaller content */
+            align-items: flex-start;
             min-height: 100vh;
             padding: 20px;
             box-sizing: border-box;
         }
         .quiz-container {
             background-color: #ffffff;
-            border-radius: 1.5rem; /* rounded-3xl */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
-            padding: 2.5rem; /* p-10 */
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem;
             width: 100%;
-            max-width: 800px; /* max-w-2xl */
-            margin-top: 20px; /* Added margin-top to prevent it from sticking to the very top */
+            max-width: 800px;
+            margin-top: 20px;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem; /* gap-6 */
+            gap: 1.5rem;
         }
         .option-label {
             display: flex;
             align-items: center;
-            padding: 0.75rem 1rem; /* py-3 px-4 */
-            border-radius: 0.75rem; /* rounded-xl */
-            border: 1px solid #e5e7eb; /* border border-gray-200 */
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid #e5e7eb;
             cursor: pointer;
             transition: all 0.2s ease-in-out;
-            margin-bottom: 0.75rem; /* mb-3 */
+            margin-bottom: 0.75rem;
         }
         .option-label:hover {
-            background-color: #f9fafb; /* hover:bg-gray-50 */
-            border-color: #d1d5db; /* hover:border-gray-300 */
+            background-color: #f9fafb;
+            border-color: #d1d5db;
         }
         .option-label input[type="radio"] {
-            margin-right: 0.75rem; /* mr-3 */
-            accent-color: #4f46e5; /* indigo-600 */
-            transform: scale(1.2); /* Slightly larger radio button */
+            margin-right: 0.75rem;
+            accent-color: #4f46e5;
+            transform: scale(1.2);
         }
         .option-label.correct {
-            background-color: #d1fae5; /* bg-green-100 */
-            border-color: #34d399; /* border-green-400 */
+            background-color: #d1fae5;
+            border-color: #34d399;
         }
         .option-label.incorrect {
-            background-color: #fee2e2; /* bg-red-100 */
-            border-color: #f87171; /* border-red-400 */
+            background-color: #fee2e2;
+            border-color: #f87171;
         }
         .feedback-box {
-            padding: 1rem; /* p-4 */
-            border-radius: 0.75rem; /* rounded-xl */
-            margin-top: 1rem; /* mt-4 */
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-top: 1rem;
         }
         .feedback-box.correct {
-            background-color: #d1fae5; /* bg-green-100 */
-            border: 1px solid #34d399; /* border-green-400 */
-            color: #065f46; /* text-green-700 */
+            background-color: #d1fae5;
+            border: 1px solid #34d399;
+            color: #065f46;
         }
         .feedback-box.incorrect {
-            background-color: #fee2e2; /* bg-red-100 */
-            border: 1px solid #f87171; /* border-red-400 */
-            color: #b91c1c; /* text-red-700 */
+            background-color: #fee2e2;
+            border: 1px solid #f87171;
+            color: #b91c1c;
         }
         .button {
-            padding: 0.75rem 1.5rem; /* py-3 px-6 */
-            border-radius: 0.75rem; /* rounded-xl */
-            font-weight: 600; /* font-semibold */
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
             transition: background-color 0.2s ease-in-out;
             cursor: pointer;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow to buttons */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .button-primary {
-            background-color: #4f46e5; /* bg-indigo-600 */
-            color: #ffffff; /* text-white */
+            background-color: #4f46e5;
+            color: #ffffff;
         }
         .button-primary:hover {
-            background-color: #4338ca; /* hover:bg-indigo-700 */
+            background-color: #4338ca;
         }
         .button-secondary {
-            background-color: #e0e7ff; /* bg-indigo-100 */
-            color: #4f46e5; /* text-indigo-600 */
+            background-color: #e0e7ff;
+            color: #4f46e5;
         }
         .button-secondary:hover {
-            background-color: #c7d2fe; /* hover:bg-indigo-200 */
+            background-color: #c7d2fe;
         }
         .summary-container {
             text-align: center;
-            margin-top: 2rem; /* mt-8 */
+            margin-top: 2rem;
         }
         .summary-container h2 {
-            font-size: 2.25rem; /* text-4xl */
-            font-weight: 700; /* font-bold */
-            color: #1f2937; /* text-gray-900 */
-            margin-bottom: 1rem; /* mb-4 */
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
         }
         .summary-container p {
-            font-size: 1.125rem; /* text-lg */
-            color: #4b5563; /* text-gray-700 */
-            margin-bottom: 1.5rem; /* mb-6 */
+            font-size: 1.125rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
         }
     </style>
 </head>
@@ -117,9 +117,7 @@
         <h1 class="text-3xl font-bold text-gray-900 text-center">Examen de la unidad 8°</h1>
         <div id="questionContainer" class="hidden">
             <p id="questionText" class="text-xl font-semibold text-gray-800 mb-4"></p>
-            <div id="optionsContainer" class="flex flex-col">
-                <!-- Options will be loaded here -->
-            </div>
+            <div id="optionsContainer" class="flex flex-col"></div>
             <div id="feedback" class="feedback-box hidden"></div>
             <div class="flex justify-between mt-6">
                 <button id="checkAnswerBtn" class="button button-primary">Verificar Respuesta</button>
@@ -128,7 +126,10 @@
         </div>
 
         <div id="startScreen" class="text-center">
-            <p class="text-lg text-gray-700 mb-6">En este examen sobre los diferentes temas de la unidad 8, puedes usar solamente tus apuntes y debes marcar la opcion correcta. Esto es evaluado,y, por lo tanto no existen 2 oportunidades, te deseamos suerte.</p>
+            <p class="text-lg text-gray-700 mb-6">
+                En este examen sobre los diferentes temas de la unidad 8, puedes usar solamente tus apuntes y debes marcar la opción correcta. 
+                Esto es evaluado y, por lo tanto, no existen 2 oportunidades. ¡Te deseamos suerte!
+            </p>
             <button id="startQuizBtn" class="button button-primary">Comenzar Examen</button>
         </div>
 
@@ -140,28 +141,28 @@
     </div>
 
     <script>
-        // Quiz questions array
+        // Preguntas del examen
         const questions = [
-        
-  {
-    "question": "¿Por qué una jirafa difícilmente podría sobrevivir en el Polo Norte?",
-    "options": ["Falta de oxígeno", "Las enfermedades de las especies", "Por la escasez de agua", "Porque no soporta el frío"],
-    "correctAnswer": "Las enfermedades de las especies",
-    "rationale": "Las especies están adaptadas a ecosistemas específicos; al cambiar de ambiente, enfrentan enfermedades y condiciones biológicas que no pueden resistir."
-  },
-  {
-    "question": "¿En cuál opción está correctamente escrito el nombre científico de la cebolla?",
-    "options": ["Allium cepa", "allium Cepa", "ALLIUM CEPA", "Allium Cepa"],
-    "correctAnswer": "Allium cepa",
-    "rationale": "En la nomenclatura binomial, el género se escribe con mayúscula inicial y la especie en minúscula, ambos en cursiva o subrayados."
-  },
-  {
-    "question": "La atmósfera de la Tierra se formó a partir de los siguientes sucesos:",
-    "options": ["Colisiones con meteoritos", "Aumento del oxígeno por plantas", "Caída de lluvia ácida", "Emisión constante de gases como vapor de agua y CO₂ de las erupciones volcánicas"],
-    "correctAnswer": "Emisión constante de gases como vapor de agua y CO₂ de las erupciones volcánicas",
-    "rationale": "Los volcanes primitivos liberaron gases que formaron la atmósfera primigenia de la Tierra."
-  },
-  {
+            {
+                "question": "1-¿Por qué una jirafa difícilmente podría sobrevivir en el Polo Norte?",
+                "options": ["Falta de oxígeno", "Las enfermedades de las especies", "Por la escasez de agua", "Porque no soporta el frío"],
+                "correctAnswer": "Las enfermedades de las especies",
+                "rationale": "Las especies están adaptadas a ecosistemas específicos; al cambiar de ambiente, enfrentan enfermedades y condiciones biológicas que no pueden resistir."
+            },
+            {
+                "question": "¿En cuál opción está correctamente escrito el nombre científico de la cebolla?",
+                "options": ["Allium cepa", "allium Cepa", "ALLIUM CEPA", "Allium Cepa"],
+                "correctAnswer": "Allium cepa",
+                "rationale": "En la nomenclatura binomial, el género se escribe con mayúscula inicial y la especie en minúscula, ambos en cursiva o subrayados."
+            },
+            {
+                "question": "La atmósfera de la Tierra se formó a partir de los siguientes sucesos:",
+                "options": ["Colisiones con meteoritos", "Aumento del oxígeno por plantas", "Caída de lluvia ácida", "Emisión constante de gases como vapor de agua y CO₂ de las erupciones volcánicas"],
+                "correctAnswer": "Emisión constante de gases como vapor de agua y CO₂ de las erupciones volcánicas",
+                "rationale": "Los volcanes primitivos liberaron gases que formaron la atmósfera primigenia de la Tierra."
+            }
+
+            {
     "question": "Los organismos del reino Animalia se caracterizan por ser:",
     "options": ["Heterótrofos, móviles y multicelulares", "Autótrofos y unicelulares", "Fotosintéticos y sin núcleo", "De vida parasitaria"],
     "correctAnswer": "Heterótrofos, móviles y multicelulares",
@@ -263,15 +264,15 @@
     "correctAnswer": "Existen diferencias genéticas entre bacterias",
     "rationale": "El análisis molecular reveló que las bacterias se dividen en dos grupos distintos: arqueas y eubacterias."
   }
-];
-
-
+            // (las demás preguntas siguen igual)
+        ];
 
         let currentQuestionIndex = 0;
         let score = 0;
         let selectedOption = null;
+        let randomizedQuestions = []; // 🔹 nuevo arreglo con preguntas al azar
 
-        // Get DOM elements
+        // Elementos del DOM
         const startScreen = document.getElementById('startScreen');
         const quizContainer = document.getElementById('questionContainer');
         const summaryScreen = document.getElementById('summaryScreen');
@@ -285,7 +286,7 @@
         const summaryScore = document.getElementById('summaryScore');
         const restartQuizBtn = document.getElementById('restartQuizBtn');
 
-        // Event Listeners
+        // Eventos
         startQuizBtn.addEventListener('click', startQuiz);
         checkAnswerBtn.addEventListener('click', checkAnswer);
         nextQuestionBtn.addEventListener('click', loadNextQuestion);
@@ -296,16 +297,23 @@
             quizContainer.classList.remove('hidden');
             currentQuestionIndex = 0;
             score = 0;
+
+            // 🔹 Mezclar preguntas al azar
+            randomizedQuestions = [...questions].sort(() => Math.random() - 0.5);
+
+            // 🔹 (Opcional) Mostrar solo una parte de ellas, por ejemplo 10 de 20:
+            // randomizedQuestions = randomizedQuestions.slice(0, 10);
+
             loadQuestion();
         }
 
         function loadQuestion() {
             resetQuizState();
-            const q = questions[currentQuestionIndex];
+            const q = randomizedQuestions[currentQuestionIndex];
             questionText.textContent = q.question;
-            optionsContainer.innerHTML = ''; // Clear previous options
+            optionsContainer.innerHTML = '';
 
-            q.options.forEach((option, index) => {
+            q.options.forEach(option => {
                 const label = document.createElement('label');
                 label.className = 'option-label';
                 const radio = document.createElement('input');
@@ -314,11 +322,9 @@
                 radio.value = option;
                 radio.addEventListener('change', () => {
                     selectedOption = option;
-                    // Remove highlight from previously selected option
                     document.querySelectorAll('.option-label').forEach(lbl => {
                         lbl.classList.remove('bg-indigo-50', 'border-indigo-400');
                     });
-                    // Highlight the newly selected option
                     label.classList.add('bg-indigo-50', 'border-indigo-400');
                 });
                 label.appendChild(radio);
@@ -330,18 +336,18 @@
         function checkAnswer() {
             if (selectedOption === null) {
                 feedbackDiv.textContent = "Por favor, selecciona una opción.";
-                feedbackDiv.className = 'feedback-box incorrect'; // Use incorrect style for warning
+                feedbackDiv.className = 'feedback-box incorrect';
                 feedbackDiv.classList.remove('hidden');
                 return;
             }
 
-            const q = questions[currentQuestionIndex];
+            const q = randomizedQuestions[currentQuestionIndex];
             const allOptions = optionsContainer.querySelectorAll('input[type="radio"]');
             let isCorrect = false;
 
             allOptions.forEach(radio => {
                 const label = radio.closest('label');
-                radio.disabled = true; // Disable all options after checking
+                radio.disabled = true;
 
                 if (radio.value === q.correctAnswer) {
                     label.classList.add('correct');
@@ -361,6 +367,7 @@
                 feedbackDiv.textContent = "Incorrecto. La respuesta correcta era: " + q.correctAnswer + ". " + q.rationale;
                 feedbackDiv.className = 'feedback-box incorrect';
             }
+
             feedbackDiv.classList.remove('hidden');
             checkAnswerBtn.classList.add('hidden');
             nextQuestionBtn.classList.remove('hidden');
@@ -368,7 +375,7 @@
 
         function loadNextQuestion() {
             currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
+            if (currentQuestionIndex < randomizedQuestions.length) {
                 loadQuestion();
             } else {
                 showSummary();
@@ -393,24 +400,19 @@
             quizContainer.classList.add('hidden');
             summaryScreen.classList.remove('hidden');
             summaryTitle.textContent = "Examen finalizado";
-            summaryScore.textContent = `Has obtenido ${score} de ${questions.length} respuestas correctas.`;
+            summaryScore.textContent = `Has obtenido ${score} de ${randomizedQuestions.length} respuestas correctas.`;
         }
 
         function restartQuiz() {
-    // Redirige al usuario a otra página (puedes cambiar la URL según lo necesites)
-    window.location.href = "https://www.google.com"; 
-}
+            window.location.href = "https://www.google.com";
+        }
 
-
-        // Initial load: show start screen
         document.addEventListener('DOMContentLoaded', () => {
             startScreen.classList.remove('hidden');
             quizContainer.classList.add('hidden');
             summaryScreen.classList.add('hidden');
         });
-
     </script>
 </body>
-
 </html>
 
